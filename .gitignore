@@ -1,0 +1,26 @@
+# Dependencies (reinstalled with `npm install`)
+node_modules/
+
+# Production build output (Vercel builds its own)
+dist/
+dist-ssr/
+
+# Environment files: keep secrets out of Git.
+# .env.example is the template and IS committed.
+.env
+.env.*
+*.env
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editors and OS junk
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini

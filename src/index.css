@@ -1,0 +1,77 @@
+/* Tailwind CSS v4: one import pulls in everything. */
+@import "tailwindcss";
+
+/* ---- Theme -----------------------------------------------------------------
+   Colours defined here become Tailwind classes, e.g. --color-brand-600 gives
+   you bg-brand-600, text-brand-600, border-brand-600 ...
+   The brand green is the green of the Nigerian flag (#008751). */
+@theme {
+  --color-brand-50: #e9f8f0;
+  --color-brand-100: #c9eedb;
+  --color-brand-200: #96dcb9;
+  --color-brand-300: #5cc593;
+  --color-brand-400: #2aa96f;
+  --color-brand-500: #0e9a5d;
+  --color-brand-600: #008751;
+  --color-brand-700: #006b41;
+  --color-brand-800: #055535;
+  --color-brand-900: #07462d;
+
+  /* System fonts: zero downloads, which matters on expensive mobile data */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---- Base styles ---------------------------------------------------------- */
+@layer base {
+  body {
+    @apply bg-white text-gray-900 antialiased;
+  }
+  /* Visible keyboard focus everywhere, for accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-600;
+  }
+}
+
+/* ---- Reusable component classes --------------------------------------------
+   Short names keep the JSX readable: <button className="btn btn-primary"> */
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold
+      transition-colors disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-primary {
+    @apply bg-brand-600 text-white hover:bg-brand-700;
+  }
+  .btn-secondary {
+    @apply border border-gray-300 bg-white text-gray-800 hover:bg-gray-50;
+  }
+  .btn-ghost {
+    @apply text-gray-700 hover:bg-gray-100;
+  }
+
+  .label {
+    @apply mb-1 block text-sm font-medium text-gray-700;
+  }
+  .input {
+    @apply block w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-base text-gray-900
+      placeholder:text-gray-400 focus:border-brand-600 focus:ring-2 focus:ring-brand-100 focus:outline-none
+      sm:text-sm;
+  }
+  .input-error {
+    @apply border-red-500 focus:border-red-500 focus:ring-red-100;
+  }
+  .field-error {
+    @apply mt-1 text-sm text-red-600;
+  }
+
+  .card {
+    @apply rounded-xl border border-gray-200 bg-white;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium;
+  }
+}
